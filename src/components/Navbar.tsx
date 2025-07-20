@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 import { cn } from '../lib/utils';
+import { NavbarToggleButton } from './NavbarToggleButton';
 
 export const Navbar = () => {
 	const [isNavbarOpen, setIsNavbarOpen] = useState(() => {
@@ -19,9 +20,10 @@ export const Navbar = () => {
 			)}
 		>
 			<div className="flex flex-col space-y-4">
-				<button onClick={toggleNavbar} type="button">
-					トグルボタン
-				</button>
+				<div className="flex justify-between">
+					<div className="font-bold">TODO</div>
+					<NavbarToggleButton toggleNavbar={toggleNavbar}></NavbarToggleButton>
+				</div>
 				<Link
 					to="/"
 					className="font-bold text-gray-800 transition-colors hover:text-blue-600"
