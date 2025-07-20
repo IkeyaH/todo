@@ -15,6 +15,5 @@ export default defineConfig({
 	],
 	optimizeDeps: {
 		force: true,
-		exclude: ['node_modules/.cache/storybook'],
 	},
 });

@@ -7,6 +7,6 @@ coverage/
 *.min.css
 package-lock.json
 yarn.lock
-routeTree.gen.ts
+src/routeTree.gen.ts
 .tanstack/
 .vscode/
