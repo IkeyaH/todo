@@ -5,16 +5,16 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    tanstackRouter({
-      target: 'react',
-      autoCodeSplitting: true,
-    }),
-  ],
-  optimizeDeps: {
-    force: true,
-    exclude: ['node_modules/.cache/storybook'],
-  },
+	plugins: [
+		react(),
+		tailwindcss(),
+		tanstackRouter({
+			target: 'react',
+			autoCodeSplitting: true,
+		}),
+	],
+	optimizeDeps: {
+		force: true,
+		exclude: ['node_modules/.cache/storybook'],
+	},
 });
