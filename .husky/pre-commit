@@ -1,0 +1,4 @@
+echo "🔍 Running linter and formatter..."
+npx run lint-staged
+
+echo "✨ Pre-commit hook completed!"
