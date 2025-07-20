@@ -1,9 +1,27 @@
 import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
+import { cn } from '../lib/utils';
 
 export const Navbar = () => {
+	const [isNavbarOpen, setIsNavbarOpen] = useState(() => {
+		return window.innerWidth >= 1024; // todo: マジックナンバー解消
+	});
+
+	const toggleNavbar = () => {
+		setIsNavbarOpen(!isNavbarOpen);
+	};
+
 	return (
-		<nav className="w-64 border-r border-gray-300 bg-gray-100 p-4">
+		<nav
+			className={cn(
+				'border-r border-gray-300 bg-gray-100 p-4 transition-all duration-300 ease-in-out',
+				isNavbarOpen ? 'w-64' : 'w-16'
+			)}
+		>
 			<div className="flex flex-col space-y-4">
+				<button onClick={toggleNavbar} type="button">
+					トグルボタン
+				</button>
 				<Link
 					to="/"
 					className="font-bold text-gray-800 transition-colors hover:text-blue-600"
