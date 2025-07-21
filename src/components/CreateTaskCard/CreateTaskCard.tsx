@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTaskStore } from '../../stores/taskStore';
+import { Button } from '../Button/Button';
 
 type CreateTaskCardProps = {
 	projectId: string;
@@ -65,19 +66,17 @@ export const CreateTaskCard = ({
 				className="max-w-40 border-b border-b-gray-300 bg-transparent p-0.5 text-sm focus:border-blue-500 focus:outline-none"
 			/>
 			<div className="flex justify-end gap-2">
-				<button
+				<Button
 					type="button"
+					variant="link"
 					onClick={onTaskCreated}
-					className="rounded px-4 py-2 text-gray-600 hover:bg-gray-100"
+					className="text-gray-600"
 				>
 					キャンセル
-				</button>
-				<button
-					type="submit"
-					className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-				>
+				</Button>
+				<Button type="submit" variant="default">
 					タスクを追加
-				</button>
+				</Button>
 			</div>
 		</form>
 	);

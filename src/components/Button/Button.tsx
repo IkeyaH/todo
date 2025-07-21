@@ -31,8 +31,8 @@ export function Button({
 	return (
 		<button
 			className={`rounded transition ${sizeClass[size]} ${variantClass[variant]} ${className}`}
+			type={props.type ?? 'button'}
 			{...props}
-			type="button"
 		>
 			{children}
 		</button>

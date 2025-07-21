@@ -3,6 +3,7 @@ import type { Task } from '../../../../types/task';
 import { CreateTaskCard } from '../../../../components/CreateTaskCard/CreateTaskCard';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { HiOutlinePlus } from 'react-icons/hi';
+import { Button } from '../../../../components';
 
 type TaskListProps = {
 	title: string;
@@ -49,16 +50,16 @@ export function TaskList({
 					onTaskCreated={handleTaskCreated}
 				/>
 			) : (
-				<button
-					type="button"
+				<Button
+					variant="link"
 					onClick={() => {
 						setIsCreating(true);
 					}}
-					className="mt-4 flex items-center text-gray-600 hover:text-gray-900"
+					className="mt-4 flex items-center text-gray-600"
 				>
-					<HiOutlinePlus />
-					追加
-				</button>
+					<HiOutlinePlus className="mr-2" />
+					タスクを追加
+				</Button>
 			)}
 		</div>
 	);
