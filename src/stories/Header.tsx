@@ -3,16 +3,16 @@ import React from 'react';
 import { Button } from './Button';
 import './header.css';
 
-interface User {
+type User = {
 	name: string;
-}
+};
 
-export interface HeaderProps {
+export type HeaderProps = {
 	user?: User;
 	onLogin?: () => void;
 	onLogout?: () => void;
 	onCreateAccount?: () => void;
-}
+};
 
 export const Header = ({
 	user,

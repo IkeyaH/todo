@@ -1,10 +1,12 @@
 import { Link } from '@tanstack/react-router';
 import { cn } from '../../lib/utils';
 import { useNavbarStore } from '../../stores/navbarStore';
+import { useProjectStore } from '../../stores/projectStore';
 import { NavbarToggleButton } from '../NavbarToggleButton/NavbarToggleButton';
 
 export const Navbar = () => {
 	const { isNavbarOpen } = useNavbarStore();
+	const { projects } = useProjectStore();
 
 	return (
 		// TODO: レスポンシブ設定
@@ -27,12 +29,23 @@ export const Navbar = () => {
 				>
 					Home
 				</Link>
-				<Link
-					to="/about"
-					className="font-bold text-gray-800 transition-colors hover:text-blue-600"
-				>
-					About
-				</Link>
+
+				{/* プロジェクトリンク */}
+				<div className="mt-4">
+					<div className="mb-2 text-sm font-semibold text-gray-600">
+						Projects
+					</div>
+					{projects.map(project => (
+						<Link
+							key={project.id}
+							to="/projects/$projectId"
+							params={{ projectId: project.id }}
+							className="block py-1 font-medium text-gray-700 transition-colors hover:text-blue-600"
+						>
+							{project.title}
+						</Link>
+					))}
+				</div>
 			</div>
 		</nav>
 	);

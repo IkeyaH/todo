@@ -1,13 +1,12 @@
 import { create } from 'zustand';
 
-interface NavbarState {
+type NavbarState = {
 	isNavbarOpen: boolean;
 	toggleNavbar: () => void;
-}
+};
 
-// TODO: マジックナンバー解消
 export const useNavbarStore = create<NavbarState>(set => ({
-	isNavbarOpen: false,
+	isNavbarOpen: true,
 	toggleNavbar: () => {
 		set(state => ({ isNavbarOpen: !state.isNavbarOpen }));
 	},
