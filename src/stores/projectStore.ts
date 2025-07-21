@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { v4 as uuid } from 'uuid';
 import type { Project } from '../types';
 
 type ProjectStore = {
@@ -32,7 +33,7 @@ export const useProjectStore = create<ProjectStore>(set => ({
 				...state.projects,
 				{
 					...project,
-					id: Date.now().toString(), // 簡単なID生成（実際のプロジェクトではuuidなどを使用することを推奨）
+					id: uuid(),
 					createdAt: new Date(),
 				},
 			],
