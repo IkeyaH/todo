@@ -20,9 +20,9 @@ function RouteComponent() {
 	if (!project) {
 		return (
 			<div className="p-8">
-				<h1 className="text-2xl font-bold text-red-600">
+				<h2 className="text-2xl font-bold text-red-600">
 					プロジェクトが見つかりません
-				</h1>
+				</h2>
 				<p className="mt-2 text-gray-600">
 					ID: {projectId} のプロジェクトは存在しません。
 				</p>
@@ -30,14 +30,11 @@ function RouteComponent() {
 		);
 	}
 
-	const completedTasks = tasks.filter(task => task.completedAt);
-	const incompleteTasks = tasks.filter(task => !task.completedAt);
-
 	return (
-		<div className="p-8">
+		<div className="w-full p-8">
 			{/* プロジェクト情報 */}
 			<div className="mb-8">
-				<h1 className="text-3xl font-bold text-gray-800">{project.title}</h1>
+				<h2 className="text-3xl font-bold text-gray-800">{project.title}</h2>
 				<p className="mt-2 text-gray-600">{project.description}</p>
 			</div>
 
@@ -61,23 +58,13 @@ function RouteComponent() {
 				</div>
 			</div> */}
 
-			{/* 未完了タスク */}
+			{/* タスク */}
 			<div className="mb-8">
 				<TaskList
-					title="未完了タスク"
-					tasks={incompleteTasks}
+					title="タスク一覧"
+					tasks={tasks}
 					onToggleComplete={toggleTaskComplete}
 					emptyMessage="未完了のタスクはありません。"
-				/>
-			</div>
-
-			{/* 完了済みタスク */}
-			<div>
-				<TaskList
-					title="完了済みタスク"
-					tasks={completedTasks}
-					onToggleComplete={toggleTaskComplete}
-					emptyMessage="完了済みのタスクはありません。"
 				/>
 			</div>
 		</div>

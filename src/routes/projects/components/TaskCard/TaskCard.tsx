@@ -20,7 +20,7 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 
 	return (
 		<div
-			className={`max-w-md border-b border-gray-200 p-1 ${
+			className={`w-full border-b border-gray-200 p-1 ${
 				isCompleted ? 'bg-gray-50' : 'bg-white'
 			}`}
 		>
