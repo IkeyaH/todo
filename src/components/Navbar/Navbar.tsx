@@ -9,6 +9,8 @@ export const Navbar = () => {
 	return (
 		// TODO: レスポンシブ設定
 		<nav
+			aria-label="Main navigation"
+			aria-hidden={!isNavbarOpen}
 			className={cn(
 				'border-r border-gray-300 bg-gray-100 p-4 transition-all duration-300 ease-in-out',
 				isNavbarOpen ? 'w-64' : 'w-0 overflow-hidden p-0'
