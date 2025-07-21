@@ -1,10 +1,11 @@
 import { VscLayoutSidebarLeftOff } from 'react-icons/vsc';
+import { useNavbarStore } from '../stores/navbarStore';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	toggleNavbar: () => void;
-}
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const NavbarToggleButton = ({ toggleNavbar, ...props }: Props) => {
+export const NavbarToggleButton = ({ ...props }: Props) => {
+	const { toggleNavbar } = useNavbarStore();
+
 	return (
 		<button
 			onClick={toggleNavbar}
