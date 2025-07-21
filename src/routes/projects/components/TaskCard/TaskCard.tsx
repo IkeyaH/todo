@@ -20,7 +20,7 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 
 	return (
 		<div
-			className={`border- max-w-md border-b border-gray-200 p-1 ${
+			className={`max-w-md border-b border-gray-200 p-1 ${
 				isCompleted ? 'bg-gray-50' : 'bg-white'
 			}`}
 		>
@@ -86,14 +86,20 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 							</button>
 						)}
 					</div>
-					{isExpanded && task.description && (
-						<p
-							className={`mt-2 text-sm break-words ${
-								isCompleted ? 'text-gray-500' : 'text-gray-600'
+					{task.description && (
+						<div
+							className={`overflow-hidden transition-all duration-300 ease-in-out ${
+								isExpanded ? 'max-h-96' : 'max-h-0'
 							}`}
 						>
-							{task.description}
-						</p>
+							<p
+								className={`mt-2 text-sm break-words ${
+									isCompleted ? 'text-gray-500' : 'text-gray-600'
+								}`}
+							>
+								{task.description}
+							</p>
+						</div>
 					)}
 				</div>
 			</div>
