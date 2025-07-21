@@ -53,11 +53,6 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 										期限: {formatDate(task.dueDate)}
 									</span>
 								)}
-								{task.completedAt && (
-									<span className="text-green-600">
-										完了: {formatDate(task.completedAt)}
-									</span>
-								)}
 							</div>
 						</div>
 						{task.description && (
