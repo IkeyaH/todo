@@ -7,7 +7,7 @@ interface NavbarState {
 
 // TODO: マジックナンバー解消
 export const useNavbarStore = create<NavbarState>(set => ({
-	isNavbarOpen: window.innerWidth >= 1024,
+	isNavbarOpen: false,
 	toggleNavbar: () => {
 		set(state => ({ isNavbarOpen: !state.isNavbarOpen }));
 	},
