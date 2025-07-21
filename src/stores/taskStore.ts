@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { v4 as uuid } from 'uuid';
 import type { Task } from '../types';
+import { mockTasks } from '../mocks';
 
 type TaskStore = {
 	tasks: Task[];
@@ -15,40 +16,7 @@ type TaskStore = {
 };
 
 export const useTaskStore = create<TaskStore>((set, get) => ({
-	tasks: [
-		{
-			id: '1',
-			projectId: '1',
-			title: 'タスク1 - プロジェクトアルファ',
-			description: 'プロジェクトアルファの最初のタスクです',
-			dueDate: new Date('2025-07-31'),
-			createdAt: new Date('2025-07-21'),
-		},
-		{
-			id: '2',
-			projectId: '1',
-			title: 'タスク2 - プロジェクトアルファ',
-			description: 'プロジェクトアルファの2番目のタスクです',
-			dueDate: new Date('2025-08-15'),
-			completedAt: new Date('2025-07-21'),
-			createdAt: new Date('2025-07-21'),
-		},
-		{
-			id: '3',
-			projectId: '1',
-			title: 'タスク3 - プロジェクトアルファ',
-			description: 'プロジェクトアルファの3番目のタスクです',
-			createdAt: new Date('2025-07-21'),
-		},
-		{
-			id: '4',
-			projectId: '1',
-			title: 'タスク4 - プロジェクトアルファ',
-			description: 'プロジェクトアルファの4番目のタスクです',
-			dueDate: new Date('2025-09-01'),
-			createdAt: new Date('2025-07-21'),
-		},
-	],
+	tasks: mockTasks,
 	addTask: task => {
 		set(state => ({
 			tasks: [
