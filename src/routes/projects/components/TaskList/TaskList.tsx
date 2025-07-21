@@ -22,7 +22,7 @@ export function TaskList({
 			{tasks.length === 0 ? (
 				<p className="text-gray-500">{emptyMessage}</p>
 			) : (
-				<div className="space-y-3">
+				<div>
 					{tasks.map(task => (
 						<TaskCard
 							key={task.id}
