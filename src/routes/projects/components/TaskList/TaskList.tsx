@@ -57,7 +57,7 @@ export function TaskList({
 					className="mt-4 flex items-center text-gray-600 hover:text-gray-900"
 				>
 					<HiOutlinePlus />
-					Add Task
+					追加
 				</button>
 			)}
 		</div>
