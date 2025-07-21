@@ -7,6 +7,7 @@ export const Navbar = () => {
 	const { isNavbarOpen } = useNavbarStore();
 
 	return (
+		// TODO: レスポンシブ設定
 		<nav
 			className={cn(
 				'border-r border-gray-300 bg-gray-100 p-4 transition-all duration-300 ease-in-out',
