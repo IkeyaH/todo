@@ -3,9 +3,13 @@ import { useTaskStore } from '../../stores/taskStore';
 
 type CreateTaskCardProps = {
 	projectId: string;
+	onTaskCreated?: () => void;
 };
 
-export const CreateTaskCard = ({ projectId }: CreateTaskCardProps) => {
+export const CreateTaskCard = ({
+	projectId,
+	onTaskCreated,
+}: CreateTaskCardProps) => {
 	const [title, setTitle] = useState('');
 	const addTask = useTaskStore(state => state.addTask);
 
@@ -18,6 +22,7 @@ export const CreateTaskCard = ({ projectId }: CreateTaskCardProps) => {
 			title: title.trim(),
 		});
 		setTitle('');
+		onTaskCreated?.();
 	};
 
 	return (

@@ -63,6 +63,7 @@ function RouteComponent() {
 				<TaskList
 					title="タスク一覧"
 					tasks={tasks}
+					projectId={projectId}
 					onToggleComplete={toggleTaskComplete}
 					emptyMessage="未完了のタスクはありません。"
 				/>

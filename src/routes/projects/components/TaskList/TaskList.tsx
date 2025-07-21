@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import type { Task } from '../../../../types/task';
+import { CreateTaskCard } from '../../../../components/CreateTaskCard/CreateTaskCard';
 import { TaskCard } from '../TaskCard/TaskCard';
+import { HiOutlinePlus } from 'react-icons/hi';
 
 type TaskListProps = {
 	title: string;
 	tasks: Task[];
+	projectId: string;
 	onToggleComplete: (taskId: string) => void;
 	emptyMessage: string;
 };
@@ -11,15 +15,22 @@ type TaskListProps = {
 export function TaskList({
 	title,
 	tasks,
+	projectId,
 	onToggleComplete,
 	emptyMessage,
 }: TaskListProps) {
+	const [isCreating, setIsCreating] = useState(false);
+
+	const handleTaskCreated = () => {
+		setIsCreating(false);
+	};
+
 	return (
 		<div>
 			<h2 className="mb-4 text-xl font-semibold text-gray-800">
 				{title} ({tasks.length})
 			</h2>
-			{tasks.length === 0 ? (
+			{tasks.length === 0 && !isCreating ? (
 				<p className="text-gray-500">{emptyMessage}</p>
 			) : (
 				<div>
@@ -31,6 +42,23 @@ export function TaskList({
 						/>
 					))}
 				</div>
+			)}
+			{isCreating ? (
+				<CreateTaskCard
+					projectId={projectId}
+					onTaskCreated={handleTaskCreated}
+				/>
+			) : (
+				<button
+					type="button"
+					onClick={() => {
+						setIsCreating(true);
+					}}
+					className="mt-4 flex items-center text-gray-600 hover:text-gray-900"
+				>
+					<HiOutlinePlus />
+					Add Task
+				</button>
 			)}
 		</div>
 	);
