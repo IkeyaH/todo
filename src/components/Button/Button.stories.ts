@@ -12,7 +12,7 @@ const meta = {
 		},
 		variant: {
 			control: { type: 'select' },
-			options: ['default', 'link', 'danger'],
+			options: ['default', 'link', 'danger', 'danger-link'],
 		},
 		onClick: { action: 'clicked' },
 	},
@@ -42,6 +42,14 @@ export const Danger: Story = {
 		...Default.args,
 		children: 'Danger Button',
 		variant: 'danger',
+	},
+};
+
+export const DangerLink: Story = {
+	args: {
+		...Default.args,
+		children: 'Danger Link Button',
+		variant: 'danger-link',
 	},
 };
 
