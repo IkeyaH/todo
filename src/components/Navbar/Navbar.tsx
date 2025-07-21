@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router';
-import { cn } from '../lib/utils';
-import { useNavbarStore } from '../stores/navbarStore';
-import { NavbarToggleButton } from './NavbarToggleButton';
+import { cn } from '../../lib/utils';
+import { useNavbarStore } from '../../stores/navbarStore';
+import { NavbarToggleButton } from '../NavbarToggleButton/NavbarToggleButton';
 
 export const Navbar = () => {
 	const { isNavbarOpen } = useNavbarStore();
