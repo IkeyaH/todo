@@ -27,6 +27,5 @@ dist-ssr
 *.sw?
 
 # System generated files
-src/routeTree.gen.ts
 *storybook.log
 storybook-static
