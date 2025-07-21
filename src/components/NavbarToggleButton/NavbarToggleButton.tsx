@@ -1,5 +1,5 @@
 import { VscLayoutSidebarLeftOff } from 'react-icons/vsc';
-import { useNavbarStore } from '../stores/navbarStore';
+import { useNavbarStore } from '../../stores/navbarStore';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement>;
 

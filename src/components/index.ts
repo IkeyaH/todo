@@ -1,2 +1,2 @@
-export * from './Navbar';
-export * from './NavbarToggleButton';
+export * from './Navbar/Navbar';
+export * from './NavbarToggleButton/NavbarToggleButton';
