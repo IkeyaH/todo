@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import type { Task } from '../../../../types/task';
+import { Button } from '../../../../components';
+import { useTaskStore } from '../../../../stores/taskStore';
+import { HiOutlineChevronDown } from 'react-icons/hi';
 
 type TaskCardProps = {
 	task: Task;
@@ -8,6 +11,8 @@ type TaskCardProps = {
 
 export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 	const [isExpanded, setIsExpanded] = useState(false);
+	const deleteTask = useTaskStore(state => state.deleteTask);
+
 	const formatDate = (date: Date) => {
 		return date.toLocaleDateString('ja-JP', {
 			year: 'numeric',
@@ -20,7 +25,7 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 
 	return (
 		<div
-			className={`w-full border-b border-gray-200 p-1 ${
+			className={`group w-full border-b border-gray-200 p-1 ${
 				isCompleted ? 'bg-gray-50' : 'bg-white'
 			}`}
 		>
@@ -55,31 +60,37 @@ export function TaskCard({ task, onToggleComplete }: TaskCardProps) {
 								)}
 							</div>
 						</div>
-						{task.description && (
-							<button
-								type="button"
-								onClick={() => {
-									setIsExpanded(!isExpanded);
-								}}
-								className="ml-2 text-gray-400 transition-colors hover:text-gray-600"
-							>
-								<svg
-									className={`h-4 w-4 transition-transform ${
-										isExpanded ? 'rotate-180' : ''
-									}`}
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
+						<div className="flex items-center">
+							<div className={`transition-opacity duration-200`}>
+								<Button
+									variant="danger-link"
+									size="sm"
+									onClick={() => {
+										deleteTask(task.id);
+									}}
+									className="ml-2"
 								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M19 9l-7 7-7-7"
-									/>
-								</svg>
-							</button>
-						)}
+									削除
+								</Button>
+							</div>
+							<div className="min-w-10">
+								{task.description && (
+									<button
+										type="button"
+										onClick={() => {
+											setIsExpanded(!isExpanded);
+										}}
+										className="ml-2 pr-2 text-gray-400 transition-colors hover:text-gray-600"
+									>
+										<HiOutlineChevronDown
+											className={`h-4 w-4 transition-transform ${
+												isExpanded ? 'rotate-180' : ''
+											}`}
+										/>
+									</button>
+								)}
+							</div>
+						</div>
 					</div>
 					{task.description && (
 						<div
