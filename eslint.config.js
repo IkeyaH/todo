@@ -34,9 +34,11 @@ export default tseslint.config(
 					tsconfigRootDir: import.meta.dirname,
 				},
 			},
+			rules: {
+				'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+			},
 		},
 		{
-			// Storybookファイル専用の設定（型チェック無し）
 			files: ['.storybook/**/*.{ts,tsx,js,jsx}'],
 			extends: [
 				js.configs.recommended,
@@ -50,6 +52,9 @@ export default tseslint.config(
 					project: false, // 型チェックを無効化
 					tsconfigRootDir: import.meta.dirname,
 				},
+			},
+			rules: {
+				'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
 			},
 		},
 	],
